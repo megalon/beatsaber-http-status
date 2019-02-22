@@ -40,10 +40,11 @@ namespace BeatSaberHTTPStatus {
 		public int maxCombo = 0;
 		public int multiplier = 0;
 		public float multiplierProgress = 0;
-		public int batteryEnergy = 1;
+        public int batteryEnergy = 1;
+        public float energy = 1;
 
-		// Note cut
-		public int noteID = -1;
+        // Note cut
+        public int noteID = -1;
 		public string noteType = null;
 		public string noteCutDirection = null;
 		public int noteLine = 0;
@@ -130,6 +131,7 @@ namespace BeatSaberHTTPStatus {
 			this.maxCombo = 0;
 			this.multiplier = 0;
 			this.multiplierProgress = 0;
+            this.energy = 0;
 		}
 
 		public void ResetNoteCut() {
