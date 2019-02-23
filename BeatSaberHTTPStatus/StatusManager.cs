@@ -116,7 +116,7 @@ namespace BeatSaberHTTPStatus {
 			performanceJSON["multiplier"] = gameStatus.multiplier;
 			performanceJSON["multiplierProgress"] = gameStatus.multiplierProgress;
 			performanceJSON["batteryEnergy"] = gameStatus.modBatteryEnergy || gameStatus.modInstaFail ? (JSONNode) new JSONNumber(gameStatus.batteryEnergy) : (JSONNode) JSONNull.CreateOrGet();
-            performanceJSON["energy"] = gameStatus.energy;
+			performanceJSON["energy"] = gameStatus.energy;
 		}
 
 		private void UpdateNoteCutJSON() {

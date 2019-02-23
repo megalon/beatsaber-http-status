@@ -217,7 +217,7 @@ namespace BeatSaberHTTPStatus {
 				gameStatus.modifierMultiplier = modifierMultiplier;
 				gameStatus.songSpeedMultiplier = songSpeedMul;
 				gameStatus.batteryLives = gameEnergyCounter.batteryLives;
-                gameStatus.energy = gameEnergyCounter.energy;
+				gameStatus.energy = gameEnergyCounter.energy;
 
 				gameStatus.modObstacles = gameplayModifiers.enabledObstacleType.ToString();
 				gameStatus.modInstaFail = gameplayModifiers.instaFail;
@@ -288,13 +288,13 @@ namespace BeatSaberHTTPStatus {
 
 				statusManager.EmitStatusUpdate(ChangedProperties.Performance, "obstacleEnter");
 
-                statusManager.gameStatus.energy = gameEnergyCounter.energy;
-            } else if (headInObstacle && !currentHeadInObstacle) {
+				statusManager.gameStatus.energy = gameEnergyCounter.energy;
+			} else if (headInObstacle && !currentHeadInObstacle) {
 				headInObstacle = false;
 
 				statusManager.EmitStatusUpdate(ChangedProperties.Performance, "obstacleExit");
-                statusManager.gameStatus.energy = gameEnergyCounter.energy;
-            }
+				statusManager.gameStatus.energy = gameEnergyCounter.energy;
+			}
 		}
 
 		public void OnGamePause() {
@@ -322,10 +322,10 @@ namespace BeatSaberHTTPStatus {
 			int cutDistanceScore = 0;
 
 			ScoreController.ScoreWithoutMultiplier(noteCutInfo, null, out score, out afterScore, out cutDistanceScore);
-            
-            statusManager.gameStatus.energy = gameEnergyCounter.energy;
+			
+			statusManager.gameStatus.energy = gameEnergyCounter.energy;
 
-            gameStatus.initialScore = score;
+			gameStatus.initialScore = score;
 			gameStatus.finalScore = -1;
 			gameStatus.cutMultiplier = multiplier;
 
@@ -422,7 +422,7 @@ namespace BeatSaberHTTPStatus {
 			// Event order: combo, multiplier, scoreController.noteWasMissed, (LateUpdate) scoreController.scoreDidChange
 
 			statusManager.gameStatus.batteryEnergy = gameEnergyCounter.batteryEnergy;
-            statusManager.gameStatus.energy = gameEnergyCounter.energy;
+			statusManager.gameStatus.energy = gameEnergyCounter.energy;
 
 			if (noteData.noteType == NoteType.Bomb) {
 				statusManager.gameStatus.passedBombs++;
@@ -439,7 +439,7 @@ namespace BeatSaberHTTPStatus {
 		public void OnScoreDidChange(int scoreBeforeMultiplier) {
 			GameStatus gameStatus = statusManager.gameStatus;
 
-            gameStatus.score = ScoreController.GetScoreForGameplayModifiersScoreMultiplier(scoreBeforeMultiplier, gameStatus.modifierMultiplier);
+			gameStatus.score = ScoreController.GetScoreForGameplayModifiersScoreMultiplier(scoreBeforeMultiplier, gameStatus.modifierMultiplier);
 
 			int currentMaxScoreBeforeMultiplier = ScoreController.MaxScoreForNumberOfNotes(gameStatus.passedNotes);
 			gameStatus.currentMaxScore = ScoreController.GetScoreForGameplayModifiersScoreMultiplier(currentMaxScoreBeforeMultiplier, gameStatus.modifierMultiplier);
